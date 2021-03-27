@@ -38,5 +38,9 @@
     - name: Install python2-PyMySQL
       yum:
         name: python2-PyMySQL
+        state: present
+    - name: Install nano
+      yum:
+        name: nano
         state: present    
 ...
