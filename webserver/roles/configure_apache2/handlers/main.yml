@@ -1,0 +1,4 @@
+---
+# handlers file for ./roles/configure_apache2
+    - name: Restart Apache
+      service: name=httpd state=restarted

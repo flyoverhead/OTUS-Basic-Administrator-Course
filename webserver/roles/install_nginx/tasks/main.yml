@@ -1,0 +1,10 @@
+---
+# tasks file for ./roles/install_nginx
+    - name: NGINX | Install EPEL Repo package from standart repo
+      yum: name=epel-release update_cache=yes state=present
+    - name: NGINX | Install NGINX package from EPEL repo
+      yum: name=nginx state=latest
+      notify:
+        - enable nginx
+
+ 

@@ -1,0 +1,4 @@
+---
+# handlers file for ./roles/install_nginx
+    - name: enable nginx
+      systemd: name=nginx enabled=yes

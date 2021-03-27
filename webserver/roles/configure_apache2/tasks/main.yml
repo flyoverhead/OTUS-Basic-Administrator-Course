@@ -1,0 +1,20 @@
+---
+# tasks file for ./roles/configure_apache2
+    - name: Copy files in www 
+      copy: src={{ item }} dest={{ destin_folder_1 }} mode=0555
+      loop:
+        - "8081"
+        - "8082"
+        - "8083"
+
+    - name: Copy files in /etc/httpd/ 
+      copy: src=./httpd.conf dest=/etc/httpd/conf/ mode=0555
+
+    - name: Copy files in /etc/httpd/conf.d/
+      copy: src={{ item }} dest={{ destin_folder_3 }} mode=0555
+      loop:
+        - "8081.conf"
+        - "8082.conf"
+        - "8083.conf"
+      notify:
+        - Restart Apache

@@ -1,0 +1,7 @@
+---
+# tasks file for ./roles/install_apache2
+    - name: Install Apache Web Server RedHat
+      yum: name=httpd update_cache=yes state=latest
+    - name: Start RedHat
+      service: name=httpd state=started enabled=yes
+ 

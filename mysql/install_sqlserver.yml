@@ -1,0 +1,42 @@
+---
+- name: Install MySQL on both VM, and meade it's avalible and started.
+  hosts: mysql01 mysql02
+  become: true
+  tasks: 
+    - name: Install wget
+      yum:
+        name: wget
+        state: present
+    
+    - name: Download the MySql
+      get_url:
+        url: http://repo.mysql.com/mysql80-community-release-el7.rpm
+        dest: ~/
+        mode: 0440
+        
+    - name: Added repo
+      shell: rpm -i ~/mysql80-community-release-el7.rpm
+    - name: Made new repo are avalible
+      shell: yum repolist enabled | grep "mysql.*-community.*"
+    - name: Install MySQL 8
+      yum:
+        name: mysql-community-server.x86_64
+        state: present
+    - name: enable service mysql and ensure it is enabled
+      systemd:
+          name: mysqld.service
+          enabled: yes
+          state: started
+    - name: Install MySQL-python
+      yum:
+        name: MySQL-python
+        state: present
+    - name: Add EPEL-repository
+      yum:
+        name: epel-release
+        state: present
+    - name: Install python2-PyMySQL
+      yum:
+        name: python2-PyMySQL
+        state: present    
+...

@@ -1,0 +1,5 @@
+---
+# vars file for ./roles/configure_apache2
+    destin_folder_1: /var/www/
+    destin_folder_2: /etc/httpd
+    destin_folder_3: /etc/httpd/conf.d

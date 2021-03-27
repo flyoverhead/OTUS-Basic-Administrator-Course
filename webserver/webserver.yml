@@ -1,0 +1,10 @@
+---
+- name: Make homework
+  hosts: all
+  become: yes
+
+  roles:
+    - install_apache2
+    - configure_apache2
+    - install_nginx
+    - configure_nginx
