@@ -13,8 +13,8 @@ I use vagrant && ansbible to bring machines up and make some magik inside them. 
 First install vagrant, ansible and virtualbox on your machine. 
 Then, just clone this github repo.
 ```
-git clone https://github.com/viveksatasiya/vagrant-prometheus-grafana.git
-cd vagrant-prometheus-grafana/
+git clone https://github.com/flypatriot/OTUS-Basic-Administrator-Course.git
+cd OTUS-Basic-Administrator-Course/
 vagrant up
 ```
 ### Postinstall
